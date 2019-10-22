@@ -1,6 +1,6 @@
-package com.sean.flink;
+package com.sean.flink.datastream;
 
-import com.sean.flink.source.MyNoParalleSource;
+import com.sean.flink.datastream.source.MyParalleSource;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
@@ -12,14 +12,14 @@ import org.apache.flink.streaming.api.windowing.time.Time;
  * Date: 19-10-17
  * Time: 下午2:52
  */
-public class StreamingDemoWithMyNoPralalleSource {
+public class StreamingDemoWithMyPralalleSource {
 
     public static void main(String[] args) throws Exception {
 
         //获取Flink的运行环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        DataStreamSource<Long> source = env.addSource(new MyNoParalleSource()).setParallelism(1);
+        DataStreamSource<Long> source = env.addSource(new MyParalleSource()).setParallelism(2);
 
         DataStream<Long> num = source.map(new MapFunction<Long, Long>() {
             @Override
@@ -36,7 +36,7 @@ public class StreamingDemoWithMyNoPralalleSource {
         sum.print().setParallelism(1);
 
         // 获取类名
-        String jobName = StreamingDemoWithMyNoPralalleSource.class.getSimpleName();
+        String jobName = StreamingDemoWithMyPralalleSource.class.getSimpleName();
         env.execute(jobName);
     }
 

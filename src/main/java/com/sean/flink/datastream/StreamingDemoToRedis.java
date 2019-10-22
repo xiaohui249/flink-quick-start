@@ -1,4 +1,4 @@
-package com.sean.flink;
+package com.sean.flink.datastream;
 
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;

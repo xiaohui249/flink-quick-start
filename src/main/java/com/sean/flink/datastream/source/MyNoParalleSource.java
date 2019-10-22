@@ -1,13 +1,13 @@
-package com.sean.flink.source;
+package com.sean.flink.datastream.source;
 
-import org.apache.flink.streaming.api.functions.source.ParallelSourceFunction;
+import org.apache.flink.streaming.api.functions.source.SourceFunction;
 
 /**
  * Create by sean
  * Date: 19-10-17
  * Time: 下午2:49
  */
-public class MyParalleSource implements ParallelSourceFunction<Long> {
+public class MyNoParalleSource implements SourceFunction<Long> {
 
     private long count = 1L;
     private boolean isRunning = true;

@@ -88,7 +88,7 @@
               </filters>
               <transformers>
                 <transformer>
-                  <mainClass>com.sean.flink.StreamingJob</mainClass>
+                  <mainClass>com.sean.flink.datastream.StreamingJob</mainClass>
                 </transformer>
               </transformers>
             </configuration>
